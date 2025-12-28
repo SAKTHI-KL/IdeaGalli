@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Idea Galli - Business and Marketing Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+  /* Demo-only overrides scoped via body.demo */
+  body.demo{font-family:Montserrat, Poppins, system-ui, sans-serif}
+  body.demo .site-header{background:linear-gradient(90deg,#2b0f6f,#5b21b6);color:#fff;box-shadow:0 8px 30px rgba(43,15,111,0.18)}
+  body.demo .site-header .main-nav a{color:rgba(255,255,255,0.95)}
+  body.demo .hero{/*background: linear-gradient(90deg, #3b0f73, #7b2bd6);*/color:#fff;padding:50px 0}
+  body.demo .hero h1{font-size:34px;color:#fff;margin:0}
+  body.demo .hero-sub{color:rgba(255,255,255,0.9)}
+  body.demo .services-grid .card{border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9));box-shadow:0 8px 28px rgba(18,6,55,0.06)}
+
+  .filter-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+  .filter-buttons button{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:8px 12px;border-radius:999px;cursor:pointer;transition:all .22s}
+  .filter-buttons button.active{background:#fff;color:#5b21b6;box-shadow:0 6px 18px rgba(91,33,182,0.12)}
+
+  .toast{position:fixed;right:20px;bottom:20px;background:#0b1220;color:#fff;padding:10px 14px;border-radius:8px;opacity:0;transform:translateY(12px);transition:all .3s;z-index:1200}
+  .toast.show{opacity:1;transform:translateY(0)}
+
+  .live-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);padding:6px 10px;border-radius:999px;color:#fff}
+  .live-toggle input{width:36px;height:20px}
+  .service.hidden{opacity:0.12;transform:scale(.98);pointer-events:none}
+
+  /* make sections slightly distinct in demo */
+  body.demo section{border-top:1px solid rgba(255,255,255,0.03)}
+
+  @media(max-width:900px){
+    body.demo .hero h1{font-size:26px;text-align:center}
+    .filter-buttons{justify-content:center}
+  }
+
+  /* Left-side looping decorative animations */
+  /* body.demo section{position:relative} */
+  .section-anim-left{position:absolute;left:10px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;pointer-events:none;z-index:12}
+  .section-anim-left .loopy{width:42px;height:42px;border-radius:50%;filter:blur(4px);opacity:.95;mix-blend-mode:screen;transform-origin:center;animation:loopy 7s ease-in-out infinite}
+  .section-anim-left .loopy.small{width:28px;height:28px;animation-duration:5.6s}
+  .section-anim-left .loopy.odd{background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), rgba(91,33,182,0.12));}
+  .section-anim-left .loopy.even{background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), rgba(59,11,115,0.08));}
+  .section-anim-left .loopy.alt{background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), rgba(139,92,246,0.06));}
+  @keyframes loopy{0%{transform:translateY(0) rotate(0deg) scale(1)}25%{transform:translateY(-10px) rotate(8deg) scale(1.03)}50%{transform:translateY(6px) rotate(-6deg) scale(0.98)}75%{transform:translateY(-6px) rotate(6deg) scale(1.02)}100%{transform:translateY(0) rotate(0deg) scale(1)}}
+
+  @media(max-width:640px){
+    .section-anim-left{display:none}
+  }
+  </style>
+</head>
+<body class="demo">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#"><img src="assets/images/logo.svg" alt="Idea Galli logo" style="height:36px; width:auto; display:block"></a>
+
+      <nav class="main-nav" id="mainNav" role="navigation" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#clients">Clients</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="cta">Book a Call</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <!-- <div class="live-toggle" title="Toggle live demo" aria-hidden="false">
+          <label style="font-size:13px;opacity:.95;margin-right:6px;color:rgba(255,255,255,0.92)">Live Demo</label>
+          <input id="liveToggle" type="checkbox" aria-label="Enable live demo">
+        </div> -->
+        <a class="btn" href="#contact">Contact</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1 id="mainHeadline">Interactive Growth Studio — Try the live controls</h1>
+        <p class="hero-sub">Play with filters, see live counters and animated charts.</p>
+        <div style="margin-top:18px" class="filter-buttons" id="filters">
+           <button data-filter="all" class="active">All</button>
+           <button data-filter="seo">SEO</button>
+           <button data-filter="ads">Ads</button>
+           <button data-filter="ecom">E-commerce</button>
+        </div>
+        <!-- <div class="hero-live" style="margin-top:10px;color:rgba(255,255,255,0.95)"><strong id="liveMetric">Visitors</strong>: <span class="counter" data-target="3120">0</span></div> -->
+      </div>
+
+      <figure class="hero-image" aria-hidden="true">
+          <lottie-player class="lottie-hero" src="assets/lottie/Digital media 3d.json" background="transparent" speed="1" loop autoplay aria-hidden="true" title="Marketing hero animation" style="max-width:420px"></lottie-player>
+      </figure>
+    </div>
+  </section>
+
+  <main style="padding-bottom: 35px;">
+    <section id="services" class="services container reveal">
+      <div class="section-title"><h2>Our Services</h2></div>
+      <p class="lead">Comprehensive digital marketing services to grow visibility, leads and revenue.</p>
+      <div class="services-inner">
+        <figure class="services-lottie" aria-hidden="true">
+          <lottie-player class="lottie-service" src="assets/lottie/Digital Marketing Services.json" background="transparent" speed="1" loop autoplay title="Services illustration" style="max-width:320px;width:100%;height:auto"></lottie-player>
+        </figure>
+
+        <div class="services-grid">
+          <div class="card service-digital" data-service="strategy">
+            <span class="icon-wrap"><i class="fa-solid fa-rocket fa-2x icon" aria-hidden="true"></i></span>
+            <h3>Digital Strategy</h3>
+            <p>Strategy & analytics support with proven growth frameworks.</p>
+          </div>
+          <div class="card service-seo" data-service="seo">
+            <span class="icon-wrap"><i class="fa-solid fa-magnifying-glass-chart fa-2x icon" aria-hidden="true"></i></span>
+            <h3>SEO Optimization</h3>
+            <p>Website optimization, SEO visibility on Google and ongoing SEO experts.</p>
+          </div>
+          <div class="card service-ecom" data-service="ecom">
+            <span class="icon-wrap"><i class="fa-solid fa-shop fa-2x icon" aria-hidden="true"></i></span>
+            <h3>E-commerce Site Development</h3>
+            <p>High-quality B2C content and conversion-focused e-commerce builds.</p>
+          </div>
+          <div class="card service-social" data-service="social">
+            <span class="icon-wrap"><i class="fa-solid fa-share-nodes fa-2x icon" aria-hidden="true"></i></span>
+            <h3>Social Media Marketing</h3>
+            <p>Strong social presence and growth-driven campaigns for Google & Meta.</p>
+          </div>
+          <div class="card service-branding" data-service="branding">
+            <span class="icon-wrap"><i class="fa-solid fa-pen-nib fa-2x icon" aria-hidden="true"></i></span>
+            <h3>Branding & Design</h3>
+            <p>Brand identity, creative assets and on-message content writing.</p>
+          </div>
+          <div class="card service-ads" data-service="ads">
+            <span class="icon-wrap"><i class="fa-solid fa-chart-line fa-2x icon" aria-hidden="true"></i></span>
+            <h3>Ads & Analytics</h3>
+            <p>Google & Meta ads specialists, tracking analytics and optimization by data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="results container reveal">
+      <div class="section-title"><h2>Our Results</h2></div>
+      <div class="results-grid">
+        <div class="result animate-on-view">
+          <div class="chart-bars" aria-hidden="true">
+            <div class="bar" style="--h:0.7"></div>
+            <div class="bar" style="--h:0.85"></div>
+            <div class="bar" style="--h:0.6"></div>
+          </div>
+          <img src="assets/images/result1.svg" alt="More Leads" class="result-image">
+          <h3><span class="counter" data-target="120">0</span>%</h3>
+          <p>More Leads for Local Business</p>
+        </div>
+        <div class="result animate-on-view">
+          <div class="chart-bars" aria-hidden="true">
+            <div class="bar" style="--h:0.6"></div>
+            <div class="bar" style="--h:0.55"></div>
+            <div class="bar" style="--h:0.9"></div>
+          </div>
+          <img src="assets/images/result2.svg" alt="ROI" class="result-image">
+          <h3><span class="counter" data-target="3">0</span>x</h3>
+          <p>ROI from Google Ads Campaign</p>
+        </div>
+        <div class="result animate-on-view">
+          <div class="chart-bars" aria-hidden="true">
+            <div class="bar" style="--h:0.5"></div>
+            <div class="bar" style="--h:0.95"></div>
+            <div class="bar" style="--h:0.82"></div>
+          </div>
+          <img src="assets/images/result3.svg" alt="E-Commerce" class="result-image">
+          <h3><span class="counter" data-target="250">0</span>%</h3>
+          <p>Increase in E-Commerce Sales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="clients" class="clients container reveal">
+      <div class="section-title"><h2>Clients</h2></div>
+      <div class="clients-list logos">
+        <img src="assets/images/client-xychromax.svg" alt="XYchromax" class="client-logo">
+        <img src="assets/images/client-sarmam.svg" alt="Sarmam" class="client-logo">
+        <img src="assets/images/client-seso.svg" alt="Seso" class="client-logo">
+      </div>
+    </section> -->
+
+    <!-- <section id="testimonials" class="testimonials container reveal">
+      <div class="section-title"><h2>Client appreciation for our work</h2></div>
+      <div class="carousel" id="testiCarousel">
+        <button class="carousel-prev" aria-label="Previous">❮</button>
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Testimonial slides 
+          <blockquote class="slide">
+            <p>“They didn’t just market our product — they made it sell.”</p>
+            <cite>— CEO, Product Co.</cite>
+          </blockquote>
+          <blockquote class="slide">
+            <p>“From clicks to customers, they handled everything.”</p>
+            <cite>— Head of Growth</cite>
+          </blockquote>
+          <blockquote class="slide">
+            <p>“Best ROI we’ve ever seen from a marketing partner.”</p>
+            <cite>— Founder, Retailer</cite>
+          </blockquote>
+          <blockquote class="slide">
+            <p>“Theirs was marketing that actually delivered results.”</p>
+            <cite>— Product Lead</cite>
+          </blockquote>
+        </div>
+        <button class="carousel-next" aria-label="Next">❯</button>
+      </div>
+    </section> -->
+
+    <section id="testimonials" class="testimonials container reveal">
+      <div class="section-title">
+        <h2>Client appreciation for our work</h2>
+      </div>
+
+      <div class="app-carousel">
+        <button class="app-prev" aria-label="Previous">❮</button>
+
+        <div class="app-track-wrapper">
+          <div class="app-track" id="appTrack">
+
+            <div class="app-slide">
+              <span class="quote">❝</span>
+              <p>They didn’t just market our product — they built a revenue engine.</p>
+              <div class="client">
+                <strong>Arun Kumar</strong>
+                <span>CEO, Product Co.</span>
+              </div>
+            </div>
+
+            <div class="app-slide">
+              <span class="quote">❝</span>
+              <p>From clicks to customers, every campaign was data-driven.</p>
+              <div class="client">
+                <strong>Meera Patel</strong>
+                <span>Head of Growth</span>
+              </div>
+            </div>
+
+            <div class="app-slide">
+              <span class="quote">❝</span>
+              <p>Best ROI we’ve ever seen from a marketing partner.</p>
+              <div class="client">
+                <strong>Rahul Verma</strong>
+                <span>Founder, Retail Brand</span>
+              </div>
+            </div>
+
+            <div class="app-slide">
+              <span class="quote">❝</span>
+              <p>Every campaign was focused, measurable, and profitable.</p>
+              <div class="client">
+                <strong>Ananya Singh</strong>
+                <span>Product Lead</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="app-next" aria-label="Next">❯</button>
+      </div>
+    </section>
+
+
+    <section class="process container reveal">
+      <div class="section-title"><h2>How we work</h2></div>
+      <div class="process-grid">
+        <div class="step">1. Discover & Analyze</div>
+        <div class="step">2. Strategy & Plan</div>
+        <div class="step">3. Execute Campaigns</div>
+        <div class="step">4. Measure & Optimize</div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container reveal">
+      <div class="section-title"><h2>Get In Touch</h2></div>
+      <div class="contact-grid">
+        <!-- <form id="contactForm" class="contact-form">
+          <div class="row">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="row">
+            <input type="tel" name="phone" placeholder="Phone">
+            <select name="service">
+              <option>Services interest</option>
+              <option>SEO</option>
+              <option>Ads</option>
+              <option>Social</option>
+            </select>
+          </div>
+          <textarea name="message" rows="4" placeholder="Message"></textarea>
+          <div class="form-row">
+            <button class="btn primary" type="submit">Send Message</button>
+            <div class="note">Or email: <a href="mailto:info@example.com">info@example.com</a></div>
+          </div>
+        </form> -->
+
+        <aside class="contact-side">
+          <h3>Office</h3>
+          <p><i class="fa fa-phone"></i><a style="text-decoration: none;" href="tel:+917708714734" class="phone-link">+91 77087 14734</a></p>
+          <p><i class="fa fa-location-dot"></i> Bangalore, India</p>
+          <!-- <div class="socials"><i class="fa-brands fa-facebook"></i> <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-linkedin"></i></div> -->
+          <p><a style="text-decoration: none;" href="https://wa.me/+917708714734?text=Hi%20there" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i> Chat on Whatsapp</a></p>
+
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 Idea Galli. All Rights Reserved.</div>
+      <div class="small">Made with ❤️ for your product growth</div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal
+  <div class="modal" id="bookModal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">×</button>
+      <h3>Book a Free Strategy Call</h3>
+      <form id="bookForm">
+        <input required name="name" placeholder="Name">
+        <input required name="email" type="email" placeholder="Email">
+        <textarea name="notes" placeholder="Tell us about your product"></textarea>
+        <button class="btn primary" type="submit">Request Call</button>
+      </form>
+    </div>
+  </div> -->
+
+  <!-- WhatsApp chat button - replace number in href with your international number (no +) -->
+  <a id="whatsappBtn" class="whatsapp-float" href="https://wa.me/+917708714734?text=Hi%20there" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <script>
+  (function(){
+    function showToast(msg, timeout=2400){
+      let t = document.getElementById('toast');
+      if(!t){ t = document.createElement('div'); t.id='toast'; t.className='toast'; document.body.appendChild(t); }
+      t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=> t.classList.remove('show'), timeout);
+    }
+
+    // counters
+    const counters = document.querySelectorAll('.counter');
+    const runCounter = (el, target) => {
+      target = target || +el.dataset.target || 0; if(el._done) return; el._done = true; const dur = 1200; let start=null; function step(ts){ if(!start) start=ts; const p = Math.min((ts-start)/dur,1); el.textContent = Math.floor(p*target); if(p<1) requestAnimationFrame(step); else el.textContent = target; } requestAnimationFrame(step);
+    };
+    const obs = new IntersectionObserver((entries)=>{ entries.forEach(en=>{ if(en.isIntersecting){ en.target.querySelectorAll && en.target.querySelectorAll('.counter').forEach(c=> runCounter(c)); if(en.target.classList && en.target.classList.contains('results')){ en.target.querySelectorAll('.bar').forEach(b=> b.style.height = (parseFloat(getComputedStyle(b).getPropertyValue('--h')) * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bar-max')) || 80) + 'px'); } } }); }, {threshold:0.2});
+    document.querySelectorAll('.reveal').forEach(r=>obs.observe(r)); document.querySelectorAll('.results').forEach(r=>obs.observe(r));
+
+    // filters
+    const filters = document.getElementById('filters');
+    if(filters){ filters.addEventListener('click', e=>{ if(e.target.tagName!=='BUTTON') return; const f = e.target.dataset.filter; filters.querySelectorAll('button').forEach(b=> b.classList.toggle('active', b===e.target)); document.querySelectorAll('.services-grid .card').forEach(card=>{ if(f==='all') card.classList.remove('hidden'); else card.classList.toggle('hidden', card.dataset.service !== f); }); showToast(f==='all' ? 'Showing all services' : `Filtered: ${f.toUpperCase()}`); }); }
+
+    // testimonial rotator
+    const slides = Array.from(document.querySelectorAll('.carousel .slide'));
+    if(slides.length){ let si=0; slides.forEach((s,i)=> s.style.opacity = i===0 ? 1 : 0); setInterval(()=>{ slides.forEach((s,i)=> s.style.opacity = (i===si) ? 1 : 0); si=(si+1)%slides.length; }, 3600); }
+
+    // live toggle
+    let liveInt = null; const liveToggle = document.getElementById('liveToggle');
+    function startLive(){ liveInt = setInterval(()=>{ const h = document.querySelector('.hero .counter'); if(h) h.textContent = +h.textContent + Math.floor(Math.random()*12+6); document.querySelectorAll('.chart-bars .bar').forEach(b=>{ const r = 0.3 + Math.random()*0.7; b.style.height = (r * parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bar-max')) || 80) + 'px'; }); }, 1200); showToast('Live demo: ON'); }
+    function stopLive(){ clearInterval(liveInt); liveInt=null; showToast('Live demo: OFF'); }
+    liveToggle && liveToggle.addEventListener('change', e=> e.target.checked ? startLive() : stopLive());
+
+    // contact form demo
+    const contactForm = document.getElementById('contactForm');
+    contactForm && contactForm.addEventListener('submit', e=>{ e.preventDefault(); const btn = contactForm.querySelector('button[type="submit"]'); btn.disabled=true; btn.textContent='Sending...'; setTimeout(()=>{ btn.disabled=false; btn.textContent='Send Message'; contactForm.reset(); showToast('Thanks! Demo message received'); },900); });
+
+    // setTimeout(()=> showToast('Demo UI active — try filters & Live toggle'), 700);
+
+    // Inject left-side loopy animations into each main section (decorative)
+    (function addSectionLoopers(){
+      const secs = document.querySelectorAll('main section');
+      secs.forEach((s, idx)=>{
+        // don't duplicate
+        if(s.querySelector('.section-anim-left')) return;
+        const wrap = document.createElement('div'); wrap.className = 'section-anim-left'; wrap.setAttribute('aria-hidden','true');
+        const a = document.createElement('span'); a.className = 'loopy odd';
+        const b = document.createElement('span'); b.className = 'loopy even small';
+        const c = document.createElement('span'); c.className = 'loopy alt';
+        // stagger animations
+        a.style.animationDelay = (idx*0.18)+'s'; b.style.animationDelay = (idx*0.6)+'s'; c.style.animationDelay = (idx*0.33)+'s';
+        wrap.appendChild(a); wrap.appendChild(b); wrap.appendChild(c);
+        s.appendChild(wrap);
+      });
+    })();
+
+  })();
+  </script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
