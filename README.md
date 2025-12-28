@@ -1,6 +1,7 @@
-# Idea Galli — Deployment & Backend Setup
+# Idea Galli Website
 
-This project is a static marketing website with optional serverless functions for sending contact/booking emails via SendGrid. It can be hosted on **Vercel** or **Netlify**.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2a8f156c-afe4-47a1-b3da-65b947d6e48b/deploy-status)](https://app.netlify.com/projects/ideagalli/deploys)
+
 
 ## What I added
 - Serverless functions:
