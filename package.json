@@ -1,0 +1,15 @@
+{
+  "name": "ideagalli-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "serve -s . -l 5000",
+    "lighthouse": "lhci autorun --collect.url=http://localhost:5000 --collect.settings.settings.emulatedFormFactor=mobile",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "lhci": "^0.10.0",
+    "serve": "^14.1.2",
+    "prettier": "^2.9.0"
+  }
+}

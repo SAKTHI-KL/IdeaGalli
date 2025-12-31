@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f5f6f7" rx="4"/>
+  <g transform="translate(80,120)" fill="#222" font-family="Inter, sans-serif">
+    <text x="0" y="0" font-size="48" font-weight="700">We Help Brands Grow</text>
+    <text x="0" y="70" font-size="22" fill="#6b6b6b">Data-Driven Digital Marketing • SEO • Social • Ads • Branding</text>
+    <rect x="0" y="110" width="220" height="46" rx="6" fill="#1b6fff"/>
+    <text x="20" y="142" fill="#fff" font-weight="700">Get Free Consultation</text>
+  </g>
+  <g transform="translate(680,240) scale(.9)">
+    <rect x="0" y="0" width="420" height="270" rx="12" fill="#ffffff" opacity="0.06"/>
+    <circle cx="60" cy="60" r="40" fill="#ffffff" opacity="0.04"/>
+  </g>
+</svg>
