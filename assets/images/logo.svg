@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-  <rect width="300" height="300" rx="150" fill="#f5f6f7" />
-  <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
-    <text x="150" y="135" font-size="46" font-weight="800" fill="#333">IDEA</text>
-    <text x="150" y="180" font-size="48" font-weight="400" fill="#222" style="font-style:italic">Galli</text>
-  </g>
-</svg>
