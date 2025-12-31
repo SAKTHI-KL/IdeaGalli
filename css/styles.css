@@ -209,10 +209,104 @@ section .container{padding-left:2rem;padding-right:2rem}
   }
 }
 
-.process{padding:2.5rem 0}
-.process-grid{display:flex;gap:1rem;flex-wrap:wrap}
-.step{flex:1;background:rgba(255,255,255,0.03);padding:1rem;border-radius:8px;color:#222;text-align:center} 
+.process {
+  padding: 2.5rem 0;
+}
 
+.process-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* STEP CARD */
+.step {
+  flex: 1;
+  position: relative;              /* REQUIRED for neon */
+  background: rgba(255,255,255,0.03);
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  text-align: center;
+  overflow: hidden;                /* Keeps neon inside */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover lift */
+.step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+
+/* TEXT */
+.step-num {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #999;
+}
+
+.step h3 {
+  margin: 15px 0 10px;
+  font-size: 20px;
+  color: #222;
+}
+
+.step p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* NEON BORDER */
+.neon-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(
+    90deg,
+    #00f0ff,
+    #7b61ff,
+    #ff2fdc,
+    #00f0ff
+  );
+  background-size: 400% 400%;
+  opacity: 0;
+  z-index: 0;
+  animation: neonMove 3s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+/* Show neon on hover */
+.step:hover .neon-border {
+  opacity: 1;
+}
+
+/* Inner background layer */
+.step::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #fff;
+  border-radius: 14px;
+  z-index: 0;
+}
+
+/* Content stays above neon */
+.step > *:not(.neon-border) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Neon animation */
+@keyframes neonMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+.subtitle { color: #777; max-width: 600px; margin: 0 auto 50px; font-size: 16px;}
 .contact{padding:2.5rem 0;color:#000} 
 .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem}
 .contact-form{background:rgba(255,255,255,0.03);padding:1rem;border-radius:8px}
@@ -299,7 +393,7 @@ section .container{padding-left:2rem;padding-right:2rem}
 .revealed{opacity:1;transform:translateY(0)}
 
 /* small helpers */
-.lead{font-size:0.98rem;color:#4b4b4b}
+.lead{font-size:0.98rem;color:#4b4b4b;text-align: center;}
 .counter{font-weight:700;color:#ff7a18;font-size:42px}
 
 /* Typography colors */

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Idea Galli - Business and Marketing Solutions</title>
+  <title>Idea Galli - Turning Vision into Reality.</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -21,10 +21,10 @@
 
   .filter-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
   .filter-buttons button{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:8px 12px;border-radius:999px;cursor:pointer;transition:all .22s}
-  .filter-buttons button.active{background:#fff;color:#5b21b6;box-shadow:0 6px 18px rgba(91,33,182,0.12)}
+  /* .filter-buttons button.active{background:#fff;color:#5b21b6;box-shadow:0 6px 18px rgba(91,33,182,0.12)} */
 
-  .toast{position:fixed;right:20px;bottom:20px;background:#0b1220;color:#fff;padding:10px 14px;border-radius:8px;opacity:0;transform:translateY(12px);transition:all .3s;z-index:1200}
-  .toast.show{opacity:1;transform:translateY(0)}
+  /* .toast{position:fixed;right:20px;bottom:20px;background:#0b1220;color:#fff;padding:10px 14px;border-radius:8px;opacity:0;transform:translateY(12px);transition:all .3s;z-index:1200}
+  .toast.show{opacity:1;transform:translateY(0)} */
 
   .live-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);padding:6px 10px;border-radius:999px;color:#fff}
   .live-toggle input{width:36px;height:20px}
@@ -56,12 +56,12 @@
 <body class="demo">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#"><img src="assets/images/logo.svg" alt="Idea Galli logo" style="height:36px; width:auto; display:block"></a>
+      <a class="logo" href="#"><img src="assets/images/sample.png" alt="Idea Galli logo" style="height:50px; width:auto; display:block"></a>
 
       <nav class="main-nav" id="mainNav" role="navigation" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#results">Results</a>
-        <a href="#clients">Clients</a>
+        <!-- <a href="#clients">Clients</a> -->
         <a href="#testimonials">Testimonials</a>
         <a href="#contact" class="cta">Book a Call</a>
       </nav>
@@ -80,8 +80,8 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-content">
-        <h1 id="mainHeadline">Interactive Growth Studio — Try the live controls</h1>
-        <p class="hero-sub">Play with filters, see live counters and animated charts.</p>
+        <h1 id="mainHeadline">Strategic thinking and bold creativity behind everything we build.</h1>
+        <p class="hero-sub">We blend strategy, design, and innovation to help brands stand out and scale with confidence.</p>
         <div style="margin-top:18px" class="filter-buttons" id="filters">
            <button data-filter="all" class="active">All</button>
            <button data-filter="seo">SEO</button>
@@ -268,7 +268,7 @@
     </section>
 
 
-    <section class="process container reveal">
+    <!-- <section class="process container reveal">
       <div class="section-title"><h2>How we work</h2></div>
       <div class="process-grid">
         <div class="step">1. Discover & Analyze</div>
@@ -276,7 +276,45 @@
         <div class="step">3. Execute Campaigns</div>
         <div class="step">4. Measure & Optimize</div>
       </div>
+    </section> -->
+
+    <section class="process container reveal">
+      <div class="section-title">
+        <h2>How We Work</h2>
+        <p class="subtitle">A simple, focused process designed for real results</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="step" style="--i:1">
+           <span class="neon-border"></span>
+          <span class="step-num">01</span>
+          <h3>Discover & Analyze</h3>
+          <p>Understanding goals, audience, and opportunities.</p>
+        </div>
+
+        <div class="step" style="--i:2">
+           <span class="neon-border"></span>
+          <span class="step-num">02</span>
+          <h3>Strategy & Plan</h3>
+          <p>Crafting a clear, creative roadmap.</p>
+        </div>
+
+        <div class="step" style="--i:3">
+           <span class="neon-border"></span>
+          <span class="step-num">03</span>
+          <h3>Execute Campaigns</h3>
+          <p>Bringing ideas to life with precision.</p>
+        </div>
+
+        <div class="step" style="--i:4">
+           <span class="neon-border"></span>
+          <span class="step-num">04</span>
+          <h3>Measure & Optimize</h3>
+          <p>Improving continuously for better impact.</p>
+        </div>
+      </div>
     </section>
+
 
     <section id="contact" class="contact container reveal">
       <div class="section-title"><h2>Get In Touch</h2></div>
